@@ -1,0 +1,8 @@
+.tag{
+    padding: 0.2em 0.5em;
+    background-color: var(--secondBackground);
+    color: var(--secondColor);
+    border-radius: 15px;
+    width: fit-content;
+    margin: .5rem;
+}

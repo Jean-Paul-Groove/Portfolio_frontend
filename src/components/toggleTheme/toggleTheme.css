@@ -1,0 +1,37 @@
+.toggleTheme {
+  position: fixed;
+  top: 1vw;
+  left: 10vw;
+  border: none;
+  outline: none;
+  z-index: 6;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  background: none;
+}
+.toggleTheme__icon {
+  width: 3vw;
+  height: 3vw;
+}
+
+.toggleTheme:hover {
+  animation: shakeIt 5s infinite;
+}
+
+@keyframes shakeIt {
+  0% {
+    transform: rotate(0);
+  }
+  2% {
+    transform: rotate(-2deg);
+  }
+  4% {
+    transform: rotate(2deg);
+  }
+  5% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}

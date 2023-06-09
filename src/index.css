@@ -1,0 +1,40 @@
+@font-face {
+  font-family: "modak";
+  src: url(./assets/fonts/Modak.ttf);
+}
+@font-face {
+  font-family: "SF UI";
+  src: url(./assets/fonts/SFUIText-Bold.ttf);
+}
+@font-face {
+  font-family: "caviar";
+  src: url(./assets/fonts/CaviarDreams.ttf);
+}
+* {
+  box-sizing: border-box;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+:root {
+  --darkColor: #43b0f1;
+  --darkBackground: #1e3d58;
+  --lightColor: #057dcd;
+  --lightBackground: #e8eef1;
+  --currentColor: var(--lightColor);
+  --currentBackground: var(--lightBackground);
+  --secondColor: var(--darkColor);
+  --secondBackground: var(--darkBackground);
+}
+body {
+  font-family: "SF UI";
+  color: var(--currentColor);
+  background-color: var(--currentBackground);
+}
+button {
+  all: initial;
+}
