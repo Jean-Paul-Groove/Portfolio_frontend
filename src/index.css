@@ -1,0 +1,73 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+input,
+button,
+textarea {
+  font: inherit;
+}
+button {
+  background: none;
+  outline: none;
+  border: none;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+@font-face {
+  font-family: "modak";
+  src: url("./assets/fonts/Modak.ttf");
+}
+@font-face {
+  font-family: "caviar";
+  src: url("./assets/fonts/CaviarDreams.ttf");
+}
+@font-face {
+  font-family: "SF UI";
+  src: url("./assets/fonts/SFUIText-Heavy.ttf");
+}
+:root {
+  --firstColor: #057dcd;
+  --secondColor: #e8eef1;
+  --thirdColor: #43b0f1;
+  --fourthColor: #1e3d58;
+  --firstFont: "caviar";
+  --secondFont: "modak";
+  --thirdFont: "SF UI";
+}
+h1 {
+  font-family: var(--firstFont);
+  font-size: 4vw;
+  height: fit-content;
+  text-align: center;
+  margin-bottom: 4vw;
+}
+h2 {
+  font-family: var(--secondFont);
+}
+body {
+  font-family: var(--thirdFont);
+  color: var(--firstColor);
+  background-color: var(--secondColor);
+  padding: 7vw 0;
+}

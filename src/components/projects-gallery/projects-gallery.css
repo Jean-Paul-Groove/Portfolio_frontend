@@ -1,0 +1,11 @@
+#projects {
+  margin-top: 5vw;
+  text-align: center;
+}
+#projects h2 {
+  font-size: 4vw;
+  margin-bottom: 2vw;
+}
+#projects h3 {
+  font-family: var(--firstFont);
+}
