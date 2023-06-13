@@ -1,0 +1,7 @@
+.tag {
+  color: var(--thirdColor);
+  background-color: var(--fourthColor);
+  border: solid 0.2vw var(--firstColor);
+  padding: 0.2vw 0.5vw;
+  border-radius: 0.5vw;
+}

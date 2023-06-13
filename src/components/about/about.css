@@ -1,0 +1,47 @@
+#about {
+  padding: 0 10vw;
+}
+.about__grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  height: fit-content;
+}
+.about__name {
+  font-size: 4vw;
+  font-family: var(--secondFont);
+  text-align: center;
+  margin-left: 2vw;
+}
+.about__profile-picture {
+  width: 15vw;
+  height: 15vw;
+  border-radius: 50%;
+  border: 1vw solid var(--fourthColor);
+  border-bottom: 0.5vw solid var(--fourthColor);
+  background-color: var(--firstColor);
+}
+.about__figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-start;
+  position: relative;
+}
+.about__description {
+  font-size: 3vw;
+  color: var(--fourthColor);
+}
+.about__description strong {
+  color: var(--firstColor);
+}
+.about__links__container {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: -5vw;
+  right: 5vw;
+}
+.links__icon {
+  width: 2vw;
+  margin: 1vw;
+}

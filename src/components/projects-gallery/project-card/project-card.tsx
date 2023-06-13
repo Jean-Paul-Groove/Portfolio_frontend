@@ -1,4 +1,5 @@
 import "./project-card.css";
+import Tag from "./tag/tag";
 
 function ProjectCard(props: {
   title: string;
@@ -20,7 +21,13 @@ function ProjectCard(props: {
           .map((paragraph) => (
             <p className="project__card__description">{paragraph}</p>
           ))}
-        <ul className="tag__container"></ul>
+        {tags && (
+          <ul className="tag__container">
+            {tags.split(" ").map((tag) => (
+              <Tag tag={tag} />
+            ))}
+          </ul>
+        )}
         <a href={url}>Lien</a>
       </figcaption>
     </figure>
