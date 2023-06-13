@@ -1,0 +1,11 @@
+.links__icon {
+  fill: var(--firstColor);
+  aspect-ratio: 1;
+  width: 2vw;
+  margin: 0;
+  display: block;
+}
+
+.links__a {
+  margin: 1vw;
+}

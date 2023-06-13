@@ -25,6 +25,7 @@ function Contact() {
       const response = await fetch(apiURL + "contact", {
         method: "POST",
         body: request,
+        headers: { "Content-Type": "application/JSON" },
       });
       if (response.ok) {
         alert("Votre message a bien été envoyé");

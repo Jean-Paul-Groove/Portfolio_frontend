@@ -8,18 +8,19 @@
 .project__card::before {
   content: "";
   position: absolute;
-  width: 100%;
+  width: 150%;
   top: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.399);
   transition: transform 0.5s ease-in-out;
   transform-origin: left;
-  border-radius: 0 8vw 8vw 0;
+  border-radius: 0 15vw 5vw 0;
   z-index: 1;
 }
 .project__card:nth-child(odd)::before {
   transform-origin: right;
-  border-radius: 8vw 0vw 0vw 8vw;
+  border-radius: 5vw 0vw 0vw 15vw;
+  left: -15vw;
 }
 .project__card:nth-child(odd) {
   background-color: var(--fourthColor);

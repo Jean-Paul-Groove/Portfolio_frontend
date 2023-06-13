@@ -1,5 +1,6 @@
 import "./project-card.css";
 import Tag from "./tag/tag";
+import GitLink from "../../shared/external-links/gitLink";
 
 function ProjectCard(props: {
   title: string;
@@ -33,7 +34,7 @@ function ProjectCard(props: {
             ))}
           </ul>
         )}
-        <a href={url}>Lien</a>
+        <GitLink url={url} />
       </figcaption>
     </figure>
   );

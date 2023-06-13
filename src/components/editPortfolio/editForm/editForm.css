@@ -1,0 +1,63 @@
+.edit__form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.edit__form__label {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+.edit__form__text-area {
+  height: 35vh;
+}
+.edit__form__text-area,
+.edit__form__input {
+  color: var(--firstColor);
+  background-color: var(--secondColor);
+  border: solid 2px var(--firstColor);
+  border-radius: 0.5vw;
+  padding: 0.5vw;
+}
+.edit__form__button,
+.edit__form__input-file::file-selector-button {
+  width: fit-content;
+  margin: 0 auto;
+  color: var(--firstColor);
+  border: solid 0.2vw var(--firstColor);
+  border-radius: 1vw;
+  padding: 0.5vw;
+  cursor: pointer;
+}
+.edit__form__input-file::file-selector-button {
+  margin-right: 1vw;
+  font-family: var(--thirdFont);
+}
+.edit__form__input-file {
+  position: relative;
+  width: 100%;
+}
+.edit__form__button:hover,
+.edit__form__input-file::file-selector-button:hover {
+  color: var(--thirdColor);
+  background-color: var(--fourthColor);
+}
+.edit__form__picture {
+  position: absolute;
+  right: 10%;
+  width: 10vw;
+  height: 10vw;
+}
+.edit__form__back {
+  position: absolute;
+  top: 0.5vw;
+  left: 0.5vw;
+  cursor: pointer;
+}
+.clear-input {
+  position: absolute;
+  bottom: 1vw;
+  right: 7vw;
+}

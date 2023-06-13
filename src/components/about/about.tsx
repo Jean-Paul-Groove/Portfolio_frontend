@@ -2,6 +2,9 @@ import "./about.css";
 import { useEffect, useState } from "react";
 import apiURL from "../../utils/apiURL";
 import { AboutContent } from "../../@types/AboutContent";
+import GitLink from "../shared/external-links/gitLink";
+import LinkedinLink from "../shared/external-links/linkedinLink";
+import EditPortfolio from "../editPortfolio/editPortfolio";
 
 function About() {
   const [about, setAbout] = useState<AboutContent>({
@@ -51,7 +54,9 @@ function About() {
                     .split(" ")
                     .map((name, index) => <p key={index + name}>{name}</p>)}
               </figcaption>
-              <div className="about__links__container"></div>
+              <div className="about__links__container">
+                <GitLink /> <LinkedinLink />
+              </div>
             </figure>
             <div className="about__description">
               {about.description &&
@@ -63,6 +68,7 @@ function About() {
                   ))}
             </div>
           </div>
+          <EditPortfolio />
         </section>
       )}
     </>
