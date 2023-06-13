@@ -1,0 +1,58 @@
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 10vw 0;
+}
+.contact__form h2 {
+  font-family: "modak";
+  font-size: 4vw;
+}
+.contact__form__label {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.contact__form__input {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  color: var(--firstColor);
+  background: var(--secondColor);
+  border: 2px solid var(--firstColor);
+  border-radius: 5px;
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  font-family: "SF UI";
+}
+.contact__form__input:valid {
+  color: var(--thirdColor);
+  background: var(--fourthColor);
+  border-color: var(--thirdColor);
+}
+.contact__form__input:focus {
+  outline: 3px solid var(--fourthColor);
+  border: none;
+}
+.contact__form__input__count {
+  align-self: flex-start;
+  color: var(--thirdColor);
+  font-size: 1vw;
+}
+
+.contact__form__button {
+  padding: 0.3rem 0.5rem;
+  color: var(--firstColor);
+  background: var(--secondColor);
+  border: 2px solid var(--firstColor);
+  border-radius: 5px;
+  width: fit-content;
+  align-self: center;
+}
+.contact__form:valid .contact__form__button {
+  color: var(--thirdColor);
+  background: var(--fourthColor);
+  border: none;
+  cursor: pointer;
+}

@@ -1,6 +1,7 @@
 import "./App.css";
 import ProjectsGallery from "./components/projects-gallery/projects-gallery";
 import About from "./components/about/about";
+import Contact from "./components/contact/contact";
 
 function App() {
   return (
@@ -10,7 +11,9 @@ function App() {
         <About></About>
         <ProjectsGallery />
       </main>
-      <footer></footer>
+      <footer>
+        <Contact />
+      </footer>
     </>
   );
 }
