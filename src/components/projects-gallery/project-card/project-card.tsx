@@ -18,13 +18,18 @@ function ProjectCard(props: {
         {description
           .replace(/(\r\n)|\r|\n/g, "\n")
           .split(/\n+/g)
-          .map((paragraph) => (
-            <p className="project__card__description">{paragraph}</p>
+          .map((paragraph, index) => (
+            <p
+              key={"project_description" + index}
+              className="project__card__description"
+            >
+              {paragraph}
+            </p>
           ))}
         {tags && (
           <ul className="tag__container">
-            {tags.split(" ").map((tag) => (
-              <Tag tag={tag} />
+            {tags.split(" ").map((tag, index) => (
+              <Tag key={tag + index} tag={tag} />
             ))}
           </ul>
         )}

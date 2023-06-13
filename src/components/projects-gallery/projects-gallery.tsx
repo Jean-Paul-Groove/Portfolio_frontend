@@ -34,6 +34,7 @@ function ProjectsGallery() {
           {projects &&
             projects.map((project: Project) => (
               <ProjectCard
+                key={project.id}
                 title={project.title}
                 img={project.img}
                 tags={project.tags}

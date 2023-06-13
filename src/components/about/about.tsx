@@ -47,10 +47,21 @@ function About() {
               )}
               <figcaption className="about__name">
                 {about.name &&
-                  about.name.split(" ").map((name) => <p>{name}</p>)}
+                  about.name
+                    .split(" ")
+                    .map((name, index) => <p key={index + name}>{name}</p>)}
               </figcaption>
               <div className="about__links__container"></div>
             </figure>
+            <div className="about__description">
+              {about.description &&
+                about.description
+                  .replace(/(\r\n)|\r|\n/g, "\n")
+                  .split(/\n+/g)
+                  .map((paragraph, index) => (
+                    <p key={index + "about_description"}>{paragraph}</p>
+                  ))}
+            </div>
           </div>
         </section>
       )}
