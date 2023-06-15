@@ -5,6 +5,7 @@ function EditAbout() {
   const [formContent, setFormContent] = useState({ name: "", description: "" });
   const [file, setFile] = useState<File>();
   const [initialPicture, setInitialPicture] = useState("");
+  const [updated, setUpdated] = useState(false);
 
   const fetchAbout = async () => {
     const response = await fetch(apiURL + "about", { method: "GET" });
@@ -19,11 +20,20 @@ function EditAbout() {
     e.preventDefault();
     if (file) {
       const request = new FormData();
+      const info = {
+        name: formContent.name,
+        description: formContent.description,
+      };
+
+      request.append("info", JSON.stringify(info));
+      console.log(request);
       request.append("file", file);
-      request.append("name", formContent.name);
-      request.append("description", formContent.description);
       const response = await fetch(apiURL + "about", {
         method: "PUT",
+        headers: {
+          "Content-Type": "multipart/form-data",
+          boundary: "something",
+        },
         body: request,
       });
       if (!response.ok) {
@@ -38,13 +48,12 @@ function EditAbout() {
         headers: {
           "Content-Type": "application/json",
         },
-
         body: request,
       });
-      if (!response.ok) {
-        alert("Une erreur est survenue");
+      if (response.ok) {
+        setUpdated(true);
       } else {
-        alert("Vos modifications ont bien été effectuées");
+        alert("Une erreur est survenue");
       }
     }
   }
@@ -65,7 +74,9 @@ function EditAbout() {
     }
   }
   const profilepicture = file ? URL.createObjectURL(file) : initialPicture;
-  return (
+  return updated ? (
+    <div> Vos modifications ont bien été prises en compte</div>
+  ) : (
     <form
       className="edit__form"
       onClick={(e) => e.stopPropagation()}
