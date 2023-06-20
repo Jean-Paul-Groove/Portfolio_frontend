@@ -41,6 +41,9 @@
   background-color: var(--secondColor);
   border: solid 0.2vw var(--thirdColor);
 }
+.project__card .links__a {
+  width: fit-content;
+}
 @media screen and (max-width: 650px) {
   .project__card {
     flex-direction: column;

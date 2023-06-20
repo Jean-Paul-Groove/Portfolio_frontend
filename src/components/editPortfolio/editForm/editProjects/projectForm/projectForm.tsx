@@ -53,7 +53,7 @@ function ProjectForm(props: {
       request.append("url", formContent.url);
       request.append("file", file);
       if (type === "new") {
-        const result = await fetch(apiURL + "new-project", {
+        const result = await fetch(apiURL + "projets/nouveau", {
           method: "POST",
           body: request,
         });
