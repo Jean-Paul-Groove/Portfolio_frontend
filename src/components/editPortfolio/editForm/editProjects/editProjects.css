@@ -1,0 +1,16 @@
+.edit__projects__form__new__project__button {
+  text-align: center;
+  width: fit-content;
+  display: block;
+  min-width: fit-content;
+  margin: 2vw auto 2vw auto;
+  color: var(--firstColor);
+  border: solid 0.2vw var(--firstColor);
+  border-radius: 1vw;
+  padding: 0.5vw;
+  cursor: pointer;
+}
+.edit__projects__form__new__project__button:hover {
+  color: var(--thirdColor);
+  background-color: var(--fourthColor);
+}

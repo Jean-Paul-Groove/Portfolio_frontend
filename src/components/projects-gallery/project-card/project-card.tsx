@@ -15,7 +15,7 @@ function ProjectCard(props: {
     <figure className="project__card">
       <img src={img} alt={title} className="project__card__img" />
       <figcaption className="project__card__info">
-        <h3 className="project__card__">{title}</h3>
+        <h3 className="project__card__title">{title}</h3>
         {description
           .replace(/(\r\n)|\r|\n/g, "\n")
           .split(/\n+/g)
