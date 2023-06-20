@@ -3,7 +3,10 @@ import { useState } from "react";
 import EditAbout from "./editAbout/editAbout";
 import EditProjects from "./editProjects/editProjects";
 
-function EditForm() {
+function EditForm(props: {
+  incrementAboutContentUpdated: () => void;
+  incrementProjectsContentUpdated: () => void;
+}) {
   const [optionSelected, setOptionSelected] = useState("");
 
   if (!optionSelected) {
@@ -32,7 +35,17 @@ function EditForm() {
         <p className="edit__form__back" onClick={() => setOptionSelected("")}>
           ⬅
         </p>
-        {optionSelected == "about" ? <EditAbout /> : <EditProjects />}
+        {optionSelected == "about" ? (
+          <EditAbout
+            incrementAboutContentUpdated={props.incrementAboutContentUpdated}
+          />
+        ) : (
+          <EditProjects
+            incrementProjectsContentUpdated={
+              props.incrementProjectsContentUpdated
+            }
+          />
+        )}
       </>
     );
   }

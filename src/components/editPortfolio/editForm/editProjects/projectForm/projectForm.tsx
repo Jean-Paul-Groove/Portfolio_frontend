@@ -7,6 +7,7 @@ import ProjectCard from "../../../../projects-gallery/project-card/project-card"
 function ProjectForm(props: {
   project: Project;
   type: "new" | "modification";
+  incrementProjectsContentUpdated: () => void;
 }) {
   const { project, type } = props;
 
@@ -59,13 +60,17 @@ function ProjectForm(props: {
         if (!result.ok) {
           alert("Une erreur est survenue");
         } else {
+          props.incrementProjectsContentUpdated();
           setUpdated(true);
         }
       }
     }
   }
   return updated ? (
-    <div> Projet {type === "new" ? "ajouté" : "modifié"} avec succès</div>
+    <div className="edit__form__announcement__div">
+      {" "}
+      Projet {type === "new" ? "ajouté" : "modifié"} avec succès
+    </div>
   ) : (
     <form onSubmit={(e) => handleSubmit(type, e)} className="project__form">
       <h2>Projet</h2>

@@ -4,7 +4,7 @@ import apiURL from "../../utils/apiURL";
 import { Project } from "../../@types/Project";
 import ProjectCard from "./project-card/project-card";
 
-function ProjectsGallery() {
+function ProjectsGallery(props: { projectsContentHasBeenUpdated: number }) {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -23,7 +23,7 @@ function ProjectsGallery() {
   };
   useEffect(() => {
     fetchProjects();
-  }, []);
+  }, [props.projectsContentHasBeenUpdated]);
   if (loading) {
     return <div>Loading</div>;
   } else {

@@ -2,7 +2,10 @@ import { useState } from "react";
 import Modal from "../shared/modal/modal";
 import EditForm from "./editForm/editForm";
 
-function EditPortfolio() {
+function EditPortfolio(props: {
+  incrementAboutContentUpdated: () => void;
+  incrementProjectsContentUpdated: () => void;
+}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   function toggleModal() {
     setIsModalOpen(!isModalOpen);
@@ -14,7 +17,12 @@ function EditPortfolio() {
       </button>
       {isModalOpen && (
         <Modal toggleModal={toggleModal}>
-          <EditForm />
+          <EditForm
+            incrementAboutContentUpdated={props.incrementAboutContentUpdated}
+            incrementProjectsContentUpdated={
+              props.incrementProjectsContentUpdated
+            }
+          />
         </Modal>
       )}
     </>

@@ -4,9 +4,8 @@ import apiURL from "../../utils/apiURL";
 import { AboutContent } from "../../@types/AboutContent";
 import GitLink from "../shared/external-links/gitLink";
 import LinkedinLink from "../shared/external-links/linkedinLink";
-import EditPortfolio from "../editPortfolio/editPortfolio";
 
-function About() {
+function About(props: { aboutContentHasBeenUpdated: number }) {
   const [about, setAbout] = useState<AboutContent>({
     id: "",
     description: "",
@@ -30,7 +29,7 @@ function About() {
   };
   useEffect(() => {
     fetchAbout();
-  }, []);
+  }, [props.aboutContentHasBeenUpdated]);
 
   return (
     <>
@@ -68,7 +67,6 @@ function About() {
                   ))}
             </div>
           </div>
-          <EditPortfolio />
         </section>
       )}
     </>

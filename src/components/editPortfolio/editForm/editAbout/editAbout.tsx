@@ -2,7 +2,7 @@ import "./editAbout.css";
 import { ChangeEvent, useState, useEffect } from "react";
 import apiURL from "../../../../utils/apiURL";
 
-function EditAbout() {
+function EditAbout(props: { incrementAboutContentUpdated: () => void }) {
   const [formContent, setFormContent] = useState({ name: "", description: "" });
   const [file, setFile] = useState<File>();
   const [initialPicture, setInitialPicture] = useState("");
@@ -31,6 +31,7 @@ function EditAbout() {
       if (!response.ok) {
         alert("Une erreur est survenue");
       } else {
+        props.incrementAboutContentUpdated();
         setUpdated(true);
       }
     } else {
@@ -43,6 +44,7 @@ function EditAbout() {
         body: request,
       });
       if (response.ok) {
+        props.incrementAboutContentUpdated();
         setUpdated(true);
       } else {
         alert("Une erreur est survenue");
@@ -67,7 +69,10 @@ function EditAbout() {
   }
   const profilepicture = file ? URL.createObjectURL(file) : initialPicture;
   return updated ? (
-    <div> Vos modifications ont bien été prises en compte</div>
+    <div className="edit__form__announcement__div">
+      {" "}
+      Vos modifications ont bien été prises en compte
+    </div>
   ) : (
     <form
       className="edit__form"

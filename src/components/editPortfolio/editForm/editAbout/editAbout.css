@@ -46,7 +46,7 @@
   right: 10%;
   width: 10vw;
   height: 10vw;
-  bottom: -7vw;
+  top: 10vh;
 }
 .edit__about__button {
   margin: auto;
