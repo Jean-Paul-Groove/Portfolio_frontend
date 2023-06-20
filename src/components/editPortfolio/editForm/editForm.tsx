@@ -10,28 +10,30 @@ function EditForm() {
     return (
       <div className="edit__form">
         <p>Quelle partie souhaitez vous modifier ?</p>
-        <button
-          className="edit__form__button"
-          onClick={() => setOptionSelected("about")}
-        >
-          A Propos
-        </button>
-        <button
-          className="edit__form__button"
-          onClick={() => setOptionSelected("projects")}
-        >
-          Gallerie de projets
-        </button>
+        <div className="edit__form__buttons__container">
+          <button
+            className="edit__form__button"
+            onClick={() => setOptionSelected("about")}
+          >
+            A Propos
+          </button>
+          <button
+            className="edit__form__button"
+            onClick={() => setOptionSelected("projects")}
+          >
+            Gallerie de projets
+          </button>
+        </div>
       </div>
     );
   } else {
     return (
-      <div className="edit__form">
+      <>
         <p className="edit__form__back" onClick={() => setOptionSelected("")}>
           ⬅
         </p>
         {optionSelected == "about" ? <EditAbout /> : <EditProjects />}
-      </div>
+      </>
     );
   }
 }

@@ -1,3 +1,4 @@
+import "./editAbout.css";
 import { ChangeEvent, useState, useEffect } from "react";
 import apiURL from "../../../../utils/apiURL";
 
@@ -20,26 +21,17 @@ function EditAbout() {
     e.preventDefault();
     if (file) {
       const request = new FormData();
-      const info = {
-        name: formContent.name,
-        description: formContent.description,
-      };
-
-      request.append("info", JSON.stringify(info));
-      console.log(request);
+      request.append("name", formContent.name);
+      request.append("description", formContent.description);
       request.append("file", file);
       const response = await fetch(apiURL + "about", {
         method: "PUT",
-        headers: {
-          "Content-Type": "multipart/form-data",
-          boundary: "something",
-        },
         body: request,
       });
       if (!response.ok) {
         alert("Une erreur est survenue");
       } else {
-        alert("Vos modifications ont bien été effectuées");
+        setUpdated(true);
       }
     } else {
       const request = JSON.stringify(formContent);
@@ -102,7 +94,7 @@ function EditAbout() {
           value={formContent.description}
         ></textarea>
       </label>
-      <label htmlFor="picture" className="edit__form__label">
+      <label htmlFor="picture" className="edit__form__label input__file__label">
         Change Picture
         <input
           type="file"
@@ -112,7 +104,7 @@ function EditAbout() {
           accept="image/*"
         />
         <img
-          className="edit__form__picture about__profile-picture"
+          className="edit__form__profile-picture about__profile-picture"
           src={profilepicture && profilepicture}
         />
         {file && (
@@ -126,7 +118,7 @@ function EditAbout() {
           </>
         )}
       </label>
-      <button type="submit" className="edit__form__button">
+      <button type="submit" className="edit__form__button edit__about__button">
         Envoyer
       </button>
     </form>
