@@ -1,0 +1,16 @@
+.update__project__icon {
+  width: 1.5vw;
+  fill: var(--firstColor);
+  stroke: var(--fourthColor);
+  position: absolute;
+  top: 1vw;
+  cursor: pointer;
+  right: 2vw;
+}
+
+@media screen and (max-width: 650px) {
+  .update__project__icon {
+    top: 0.5vw;
+    width: 3vw;
+  }
+}

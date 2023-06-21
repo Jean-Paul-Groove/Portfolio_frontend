@@ -3,7 +3,7 @@
   fill: var(--firstColor);
   stroke: var(--fourthColor);
   position: absolute;
-  top: 0;
+  top: 1vw;
   cursor: pointer;
   left: 2vw;
 }
@@ -46,5 +46,6 @@
 @media screen and (max-width: 650px) {
   .delete__project__icon {
     width: 3vw;
+    top: 0.5vw;
   }
 }

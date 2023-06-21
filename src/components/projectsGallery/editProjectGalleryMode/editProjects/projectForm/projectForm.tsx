@@ -14,7 +14,7 @@ function ProjectForm(props: {
   const [formContent, setFormContent] = useState(project);
   const [file, setFile] = useState<File>();
   const [updated, setUpdated] = useState(false);
-  const imgUrl = file ? URL.createObjectURL(file) : "";
+  const imgUrl = file ? URL.createObjectURL(file) : project.img;
   const incrementUpdatedProjectsContent = useContext(
     UpdatedContentContext
   ).incrementUpdatedProjectsContent;
@@ -47,19 +47,60 @@ function ProjectForm(props: {
     e: React.FormEvent
   ) {
     e.preventDefault();
-    if (!file) {
-      alert("Veuillez sélectionner un fichier");
-    } else {
-      const request = new FormData();
-      request.append("title", formContent.title);
-      request.append("description", formContent.description);
-      request.append("tags", formContent.tags);
-      request.append("url", formContent.url);
-      request.append("file", file);
-      if (type === "new") {
+    if (type === "new") {
+      if (!file) {
+        alert("Veuillez sélectionner un fichier car le type est " + type);
+      } else {
+        const request = new FormData();
+        request.append("title", formContent.title);
+        request.append("description", formContent.description);
+        request.append("tags", formContent.tags);
+        request.append("url", formContent.url);
+        request.append("file", file);
+
         const result = await fetch(apiURL + "projets/", {
           method: "POST",
           body: request,
+        });
+        if (!result.ok) {
+          alert("Une erreur est survenue");
+        } else {
+          setUpdated(true);
+          if (incrementUpdatedProjectsContent) {
+            incrementUpdatedProjectsContent();
+          }
+        }
+      }
+    }
+    if (type === "modification") {
+      if (file) {
+        const request = new FormData();
+        request.append("title", formContent.title);
+        request.append("description", formContent.description);
+        request.append("tags", formContent.tags);
+        request.append("url", formContent.url);
+        request.append("file", file);
+
+        const result = await fetch(apiURL + "projets/" + project.id, {
+          method: "PUT",
+          body: request,
+        });
+        if (!result.ok) {
+          alert("Une erreur est survenue");
+        } else {
+          setUpdated(true);
+          if (incrementUpdatedProjectsContent) {
+            incrementUpdatedProjectsContent();
+          }
+        }
+      } else {
+        const request = JSON.stringify(formContent);
+        const result = await fetch(apiURL + "projets/" + project.id, {
+          method: "PUT",
+          body: request,
+          headers: {
+            "Content-Type": "application/json",
+          },
         });
         if (!result.ok) {
           alert("Une erreur est survenue");
@@ -130,7 +171,6 @@ function ProjectForm(props: {
           name="image"
           accept="image/*"
           onChange={handleFileChange}
-          required
         />
       </label>
       <div>
