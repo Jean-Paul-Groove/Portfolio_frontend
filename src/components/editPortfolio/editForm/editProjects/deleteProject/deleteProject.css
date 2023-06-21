@@ -1,0 +1,50 @@
+.delete__project__icon {
+  width: 1.5vw;
+  fill: var(--firstColor);
+  stroke: var(--fourthColor);
+  position: absolute;
+  top: 0;
+  cursor: pointer;
+  left: 2vw;
+}
+.delete__project__confirmation__wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.281);
+}
+.delete__project__confirmation__div {
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  left: 5%;
+  right: 5%;
+  padding: 2vw;
+  border-radius: 2vw;
+  background-color: var(--fourthColor);
+  color: var(--thirdColor);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.delete__project__confirmation__button__container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.delete__project__confirmation__button__container button {
+  background-color: var(--thirdColor);
+  color: var(--fourthColor);
+  padding: 0.2vw 0.8vw;
+  border-radius: 2vw;
+  cursor: pointer;
+}
+.delete__project__confirmation__button__container button:hover {
+  box-shadow: 0 0 3vw var(--firstColor);
+}
+@media screen and (max-width: 650px) {
+  .delete__project__icon {
+    width: 3vw;
+  }
+}

@@ -1,0 +1,16 @@
+.edit__project__card {
+  position: relative;
+  text-align: center;
+}
+.edit__project__card__title {
+  font-family: var(--firstFont);
+  margin: 0.5vw 3vw;
+}
+.edit__project__card__img {
+  margin: auto;
+  border-radius: 1vw;
+}
+.edit__project__card__header {
+  display: flex;
+  justify-content: center;
+}

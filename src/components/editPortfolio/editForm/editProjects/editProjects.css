@@ -14,3 +14,15 @@
   color: var(--thirdColor);
   background-color: var(--fourthColor);
 }
+.edit__projects__gallery {
+  display: grid;
+  grid-template-columns: 45% 45%;
+  column-gap: 8%;
+  row-gap: 3vw;
+}
+@media screen and (max-width: 650px) {
+  .edit__projects__gallery {
+    grid-template-columns: 90%;
+    justify-content: center;
+  }
+}
