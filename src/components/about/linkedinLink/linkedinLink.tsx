@@ -1,4 +1,4 @@
-import "./external-links.css";
+import "./linkedinLink.css";
 
 LinkedinLink.defaultProps = {
   url: "https://www.linkedin.com/in/rousselet-quentin/",
@@ -6,13 +6,13 @@ LinkedinLink.defaultProps = {
 function LinkedinLink(props: { url: string }) {
   return (
     <a
-      className="links__a"
+      className="linkedin__a"
       href={props.url}
       target="_blank"
       rel="noreferrer noopener"
     >
       <svg
-        className="links__icon"
+        className="linkedin__icon"
         role="img"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"

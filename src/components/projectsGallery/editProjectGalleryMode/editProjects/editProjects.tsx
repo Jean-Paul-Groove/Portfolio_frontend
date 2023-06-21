@@ -1,31 +1,31 @@
 import "./editProjects.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Project } from "../../../../@types/Project";
 import ProjectForm from "./projectForm/projectForm";
-import apiURL from "../../../../utils/apiURL";
 import EditProjectCard from "./editProjectCard/editProjectCard";
 import DeleteProject from "./deleteProject/deleteProject";
+import UpdatedContentContext from "../../../../utils/contexts/UpdatedContentContexts";
+const apiURL = import.meta.env.VITE_API_URL;
 
-function EditProjects(props: { incrementProjectsContentUpdated: () => void }) {
+function EditProjects() {
   const [project, setProject] = useState<Project>();
   const [projectList, setProjectList] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const updatedProjectsContentCount = useContext(
+    UpdatedContentContext
+  ).updatedProjectsContent;
 
   const fetchProjects = async (): Promise<void> => {
-    setLoading(true);
     try {
       const response = await fetch(apiURL + "projets", { method: "GET" });
       const projects = await response.json();
       setProjectList(projects);
-      setLoading(false);
     } catch (error) {
-      setLoading(false);
       console.log(error);
     }
   };
   useEffect(() => {
     fetchProjects();
-  }, []);
+  }, [updatedProjectsContentCount]);
   function openProjectEditor(project: Project) {
     setProject(project);
   }
@@ -37,13 +37,7 @@ function EditProjects(props: { incrementProjectsContentUpdated: () => void }) {
     url: "",
   };
   if (project) {
-    return (
-      <ProjectForm
-        project={project}
-        type="new"
-        incrementProjectsContentUpdated={props.incrementProjectsContentUpdated}
-      />
-    );
+    return <ProjectForm project={project} type="new" />;
   } else {
     return (
       <>

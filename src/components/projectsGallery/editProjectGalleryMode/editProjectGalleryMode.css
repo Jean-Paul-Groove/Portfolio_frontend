@@ -1,0 +1,15 @@
+.edit__project__gallery__mode__button {
+  color: var(--thirdColor);
+  background-color: var(--fourthColor);
+  padding: 0.3vw 0.8vw;
+  border-radius: 2vw;
+  border: solid 0.2vw var(--firstColor);
+  margin-bottom: 2vw;
+  cursor: pointer;
+  align-self: left;
+  width: fit-content;
+  margin-left: 10vw;
+}
+.edit__project__gallery__mode__button:hover {
+  box-shadow: 0 0 6vw var(--fourthColor);
+}

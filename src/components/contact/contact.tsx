@@ -1,6 +1,6 @@
 import "./contact.css";
 import { useState } from "react";
-import apiURL from "../../utils/apiURL";
+const apiURL = import.meta.env.VITE_API_URL;
 
 function Contact() {
   const [formData, setFormData] = useState({ nom: "", email: "", message: "" });

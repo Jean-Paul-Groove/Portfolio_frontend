@@ -1,13 +1,13 @@
 import "./projectForm.css";
 import { Project } from "../../../../../@types/Project";
-import { ChangeEvent, useState } from "react";
-import apiURL from "../../../../../utils/apiURL";
-import ProjectCard from "../../../../projects-gallery/project-card/project-card";
+import { ChangeEvent, useContext, useState } from "react";
+import ProjectCard from "../../../projectCard/projectCard";
+import UpdatedContentContext from "../../../../../utils/contexts/UpdatedContentContexts";
+const apiURL = import.meta.env.VITE_API_URL;
 
 function ProjectForm(props: {
   project: Project;
   type: "new" | "modification";
-  incrementProjectsContentUpdated: () => void;
 }) {
   const { project, type } = props;
 
@@ -15,6 +15,10 @@ function ProjectForm(props: {
   const [file, setFile] = useState<File>();
   const [updated, setUpdated] = useState(false);
   const imgUrl = file ? URL.createObjectURL(file) : "";
+  const incrementUpdatedProjectsContent = useContext(
+    UpdatedContentContext
+  ).incrementUpdatedProjectsContent;
+
   function changeFormContent(
     e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>
   ): void {
@@ -53,15 +57,17 @@ function ProjectForm(props: {
       request.append("url", formContent.url);
       request.append("file", file);
       if (type === "new") {
-        const result = await fetch(apiURL + "projets/nouveau", {
+        const result = await fetch(apiURL + "projets/", {
           method: "POST",
           body: request,
         });
         if (!result.ok) {
           alert("Une erreur est survenue");
         } else {
-          props.incrementProjectsContentUpdated();
           setUpdated(true);
+          if (incrementUpdatedProjectsContent) {
+            incrementUpdatedProjectsContent();
+          }
         }
       }
     }

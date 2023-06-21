@@ -1,6 +1,8 @@
 #projects {
   margin-top: 5vw;
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 #projects h2 {
   font-size: 4vw;

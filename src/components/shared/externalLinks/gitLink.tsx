@@ -1,4 +1,4 @@
-import "./external-links.css";
+import "./gitLinks.css";
 
 GitLink.defaultProps = {
   url: "https://github.com/Jean-Paul-Groove",
@@ -6,13 +6,13 @@ GitLink.defaultProps = {
 function GitLink(props: { url: string }) {
   return (
     <a
-      className="links__a"
+      className="git__a"
       href={props.url}
       target="_blank"
       rel="noreferrer noopener"
     >
       <svg
-        className="links__icon"
+        className="git__icon"
         role="img"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"

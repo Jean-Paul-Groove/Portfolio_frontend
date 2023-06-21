@@ -1,41 +1,40 @@
 import "./about.css";
-import { useEffect, useState } from "react";
-import apiURL from "../../utils/apiURL";
+import { useEffect, useState, useContext } from "react";
 import { AboutContent } from "../../@types/AboutContent";
-import GitLink from "../shared/external-links/gitLink";
-import LinkedinLink from "../shared/external-links/linkedinLink";
+import GitLink from "../shared/externalLinks/gitLink";
+import LinkedinLink from "./linkedinLink/linkedinLink";
+import EditAboutMode from "./editAboutMode/editAboutMode";
+import UpdatedContentContext from "../../utils/contexts/UpdatedContentContexts";
+const apiURL = import.meta.env.VITE_API_URL;
 
-function About(props: { aboutContentHasBeenUpdated: number }) {
+function About() {
   const [about, setAbout] = useState<AboutContent>({
     id: "",
     description: "",
     img: "",
     name: "",
   });
-
-  const [loading, setLoading] = useState(false);
+  const updatedAboutContentCount = useContext(
+    UpdatedContentContext
+  ).updatedAboutContent;
 
   const fetchAbout = async () => {
     try {
-      setLoading(true);
       const response = await fetch(apiURL + "about", { method: "GET" });
       const data = await response.json();
       setAbout(data);
-      setLoading(false);
     } catch (error) {
-      setLoading(false);
       console.log(error);
     }
   };
   useEffect(() => {
     fetchAbout();
-  }, [props.aboutContentHasBeenUpdated]);
+  }, [updatedAboutContentCount]);
 
   return (
     <>
-      {loading ? (
-        <div className="loading"></div>
-      ) : (
+      <EditAboutMode />
+      {about && (
         <section id="about">
           <h1>Portfolio</h1>
           <div className="about__grid">

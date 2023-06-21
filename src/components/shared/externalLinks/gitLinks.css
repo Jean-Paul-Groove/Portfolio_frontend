@@ -1,4 +1,4 @@
-.links__icon {
+.git__icon {
   fill: var(--firstColor);
   aspect-ratio: 1;
   width: 2vw;
@@ -6,6 +6,7 @@
   display: block;
 }
 
-.links__a {
+.git__a {
   margin: 1vw;
+  width: fit-content;
 }

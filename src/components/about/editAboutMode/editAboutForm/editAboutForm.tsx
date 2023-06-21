@@ -1,12 +1,16 @@
-import "./editAbout.css";
-import { ChangeEvent, useState, useEffect } from "react";
-import apiURL from "../../../../utils/apiURL";
+import UpdatedContentContext from "../../../../utils/contexts/UpdatedContentContexts";
+import "./editAboutForm.css";
+import { ChangeEvent, useState, useEffect, useContext } from "react";
+const apiURL = import.meta.env.VITE_API_URL;
 
-function EditAbout(props: { incrementAboutContentUpdated: () => void }) {
+function EditAboutForm() {
   const [formContent, setFormContent] = useState({ name: "", description: "" });
   const [file, setFile] = useState<File>();
   const [initialPicture, setInitialPicture] = useState("");
   const [updated, setUpdated] = useState(false);
+  const incrementUpdatedAboutContent = useContext(
+    UpdatedContentContext
+  ).incrementUpdatedAboutContent;
 
   const fetchAbout = async () => {
     const response = await fetch(apiURL + "about", { method: "GET" });
@@ -31,8 +35,10 @@ function EditAbout(props: { incrementAboutContentUpdated: () => void }) {
       if (!response.ok) {
         alert("Une erreur est survenue");
       } else {
-        props.incrementAboutContentUpdated();
         setUpdated(true);
+        if (incrementUpdatedAboutContent) {
+          incrementUpdatedAboutContent();
+        }
       }
     } else {
       const request = JSON.stringify(formContent);
@@ -44,8 +50,10 @@ function EditAbout(props: { incrementAboutContentUpdated: () => void }) {
         body: request,
       });
       if (response.ok) {
-        props.incrementAboutContentUpdated();
         setUpdated(true);
+        if (incrementUpdatedAboutContent) {
+          incrementUpdatedAboutContent();
+        }
       } else {
         alert("Une erreur est survenue");
       }
@@ -130,4 +138,4 @@ function EditAbout(props: { incrementAboutContentUpdated: () => void }) {
   );
 }
 
-export default EditAbout;
+export default EditAboutForm;

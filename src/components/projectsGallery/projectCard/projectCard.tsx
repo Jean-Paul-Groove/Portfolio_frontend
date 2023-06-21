@@ -1,6 +1,6 @@
-import "./project-card.css";
+import "./projectCard.css";
 import Tag from "./tag/tag";
-import GitLink from "../../shared/external-links/gitLink";
+import GitLink from "../../shared/externalLinks/gitLink";
 
 function ProjectCard(props: {
   title: string;

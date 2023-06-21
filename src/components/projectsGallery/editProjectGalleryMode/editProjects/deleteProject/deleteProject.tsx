@@ -1,7 +1,8 @@
 import "./deleteProject.css";
 import { Project } from "../../../../../@types/Project";
-import { useState } from "react";
-import apiURL from "../../../../../utils/apiURL";
+import { useContext, useState } from "react";
+import UpdatedContentContext from "../../../../../utils/contexts/UpdatedContentContexts";
+const apiURL = import.meta.env.VITE_API_URL;
 
 function DeleteProject(props: { project: Project }) {
   const { project } = props;
@@ -15,12 +16,18 @@ function DeleteProject(props: { project: Project }) {
     </svg>
   );
   const [confirmationIsOpen, setConfirmationIsOpen] = useState(false);
+  const incrementUpdatedProjectsContent = useContext(
+    UpdatedContentContext
+  ).incrementUpdatedProjectsContent;
   async function sendDeleteRequest() {
-    const result = await fetch(apiURL + "/projets/" + project.id, {
+    const result = await fetch(apiURL + "projets/" + project.id, {
       method: "DELETE",
     });
-    if (result.ok) {
+    if (result.status == 204) {
       alert("Suppression effectuée");
+      if (incrementUpdatedProjectsContent) {
+        incrementUpdatedProjectsContent();
+      }
     } else {
       alert("Une erreur est survenue");
     }
