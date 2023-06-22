@@ -5,6 +5,7 @@ import GitLink from "../shared/externalLinks/gitLink";
 import LinkedinLink from "./linkedinLink/linkedinLink";
 import EditAboutMode from "./editAboutMode/editAboutMode";
 import UpdatedContentContext from "../../utils/contexts/UpdatedContentContexts";
+import AuthentifiedContext from "../../utils/contexts/AuthentifiedContext";
 const apiURL = import.meta.env.VITE_API_URL;
 
 function About() {
@@ -17,6 +18,7 @@ function About() {
   const updatedAboutContentCount = useContext(
     UpdatedContentContext
   ).updatedAboutContent;
+  const token = useContext(AuthentifiedContext).token;
 
   const fetchAbout = async () => {
     try {
@@ -33,7 +35,7 @@ function About() {
 
   return (
     <>
-      <EditAboutMode />
+      {token && <EditAboutMode />}
       {about && (
         <section id="about">
           <h1>Portfolio</h1>

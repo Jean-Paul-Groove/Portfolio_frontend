@@ -1,0 +1,8 @@
+.logout__icon {
+  stroke: var(--firstColor);
+  width: 2vw;
+  cursor: pointer;
+}
+.logout__icon:hover {
+  fill: var(--fourthColor);
+}

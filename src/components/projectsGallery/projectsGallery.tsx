@@ -4,6 +4,7 @@ import { Project } from "../../@types/Project";
 import ProjectCard from "./projectCard/projectCard";
 import EditProjectGalleryMode from "./editProjectGalleryMode/editProjectGalleryMode";
 import UpdatedContentContext from "../../utils/contexts/UpdatedContentContexts";
+import AuthentifiedContext from "../../utils/contexts/AuthentifiedContext";
 const apiURL = import.meta.env.VITE_API_URL;
 
 function ProjectsGallery() {
@@ -12,7 +13,7 @@ function ProjectsGallery() {
   const updatedProjectsContentCount = useContext(
     UpdatedContentContext
   ).updatedProjectsContent;
-
+  const token = useContext(AuthentifiedContext).token;
   const fetchProjects = async (): Promise<string[] | undefined> => {
     try {
       const response = await fetch(apiURL + "projets", { method: "GET" });
@@ -30,7 +31,7 @@ function ProjectsGallery() {
 
   return (
     <section id="projects">
-      <EditProjectGalleryMode />
+      {token && <EditProjectGalleryMode />}
       {projects && (
         <>
           <h2 className="projects__title">Quelques projets</h2>

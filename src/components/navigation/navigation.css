@@ -1,0 +1,29 @@
+.navigation {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+  height: 5vw;
+  padding-right: 10vw;
+  padding-left: 5vw;
+  background-color: var(--secondColor);
+  box-shadow: 0 0 10px var(--fourthColor);
+  z-index: 5;
+}
+
+.navigation__list {
+  font-family: var(--firstFont);
+  border-bottom: 2px solid var(--thirdColor);
+  width: 40vw;
+  min-width: fit-content;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 0.1vw;
+  margin-bottom: 1vw;
+  margin-left: auto;
+  font-size: 2.5vw;
+}

@@ -3,6 +3,7 @@ import { Project } from "../../../../../@types/Project";
 import { ChangeEvent, useContext, useState } from "react";
 import ProjectCard from "../../../projectCard/projectCard";
 import UpdatedContentContext from "../../../../../utils/contexts/UpdatedContentContexts";
+import AuthentifiedContext from "../../../../../utils/contexts/AuthentifiedContext";
 const apiURL = import.meta.env.VITE_API_URL;
 
 function ProjectForm(props: {
@@ -18,6 +19,7 @@ function ProjectForm(props: {
   const incrementUpdatedProjectsContent = useContext(
     UpdatedContentContext
   ).incrementUpdatedProjectsContent;
+  const token = useContext(AuthentifiedContext).token;
 
   function changeFormContent(
     e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -61,6 +63,7 @@ function ProjectForm(props: {
         const result = await fetch(apiURL + "projets/", {
           method: "POST",
           body: request,
+          headers: { authorization: `bearer ${token}` },
         });
         if (!result.ok) {
           alert("Une erreur est survenue");
@@ -84,6 +87,7 @@ function ProjectForm(props: {
         const result = await fetch(apiURL + "projets/" + project.id, {
           method: "PUT",
           body: request,
+          headers: { authorization: `bearer ${token}` },
         });
         if (!result.ok) {
           alert("Une erreur est survenue");
@@ -100,6 +104,7 @@ function ProjectForm(props: {
           body: request,
           headers: {
             "Content-Type": "application/json",
+            authorization: `bearer ${token}`,
           },
         });
         if (!result.ok) {

@@ -1,3 +1,4 @@
+import AuthentifiedContext from "../../../../utils/contexts/AuthentifiedContext";
 import UpdatedContentContext from "../../../../utils/contexts/UpdatedContentContexts";
 import "./editAboutForm.css";
 import { ChangeEvent, useState, useEffect, useContext } from "react";
@@ -11,6 +12,7 @@ function EditAboutForm() {
   const incrementUpdatedAboutContent = useContext(
     UpdatedContentContext
   ).incrementUpdatedAboutContent;
+  const token = useContext(AuthentifiedContext).token;
 
   const fetchAbout = async () => {
     const response = await fetch(apiURL + "about", { method: "GET" });
@@ -31,6 +33,7 @@ function EditAboutForm() {
       const response = await fetch(apiURL + "about", {
         method: "PUT",
         body: request,
+        headers: { authorization: `bearer ${token}` },
       });
       if (!response.ok) {
         alert("Une erreur est survenue");
@@ -46,6 +49,7 @@ function EditAboutForm() {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          authorization: `bearer ${token}`,
         },
         body: request,
       });

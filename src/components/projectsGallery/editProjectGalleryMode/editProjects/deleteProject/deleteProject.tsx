@@ -2,6 +2,7 @@ import "./deleteProject.css";
 import { Project } from "../../../../../@types/Project";
 import { useContext, useState } from "react";
 import UpdatedContentContext from "../../../../../utils/contexts/UpdatedContentContexts";
+import AuthentifiedContext from "../../../../../utils/contexts/AuthentifiedContext";
 const apiURL = import.meta.env.VITE_API_URL;
 
 function DeleteProject(props: { project: Project }) {
@@ -19,9 +20,11 @@ function DeleteProject(props: { project: Project }) {
   const incrementUpdatedProjectsContent = useContext(
     UpdatedContentContext
   ).incrementUpdatedProjectsContent;
+  const token = useContext(AuthentifiedContext).token;
   async function sendDeleteRequest() {
     const result = await fetch(apiURL + "projets/" + project.id, {
       method: "DELETE",
+      headers: { authorization: `bearer ${token}` },
     });
     if (result.status == 204) {
       alert("Suppression effectuée");

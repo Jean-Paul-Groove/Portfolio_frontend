@@ -2,18 +2,21 @@ import "./connexion.css";
 import Modal from "../shared/modal/modal";
 import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
+import AuthentifiedContext from "../../utils/contexts/AuthentifiedContext";
 const apiURL = import.meta.env.VITE_API_URL;
 
 function Connexion() {
   const navigate = useNavigate();
   function closeModal() {
-    console.log("CloseModal Triggered !!!");
     return navigate("/");
   }
   const [formContent, setFormContent] = useState({
     username: "",
     password: "",
   });
+
+  const authContext = useContext(AuthentifiedContext);
+
   function handleFormChange(e: React.FormEvent<HTMLInputElement>): void {
     if (formContent && e.currentTarget.name) {
       const newFormContent = {
@@ -32,13 +35,21 @@ function Connexion() {
       headers: { "Content-type": "Application/JSON" },
       body: request,
     });
-    if (response.ok) {
+    if (response.status == 200) {
       const data = await response.json();
-      console.log(data);
-      const token = JSON.parse(data);
-      console.log(token);
+      const token = data.token;
+      if (token && authContext.setToken) {
+        authContext.setToken(token);
+        closeModal();
+      } else {
+        alert("Erreur, veuillez réessayer");
+      }
     } else {
-      alert("Erreur, veuillez réessayer");
+      if (response.status == 401) {
+        alert("Couple identifiant / Mot de passe incorrect");
+      } else {
+        alert("Erreur, veuillez réessayer");
+      }
     }
   }
 
