@@ -11,7 +11,7 @@
   width: 80%;
 }
 .edit__form__text-area {
-  height: 35vh;
+  height: 20vh;
 }
 .edit__form__text-area,
 .edit__form__input {
@@ -53,7 +53,7 @@
   right: 10%;
   width: 10vw;
   height: 10vw;
-  top: 10vh;
+  top: 1vh;
 }
 .edit__about__button {
   margin: auto;

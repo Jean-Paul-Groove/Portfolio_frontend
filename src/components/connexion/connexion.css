@@ -1,0 +1,33 @@
+.connexion__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.connexion__form__label {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 3vw 0;
+}
+.connexion__form__input {
+  color: var(--firstColor);
+  background-color: var(--secondColor);
+  border: solid 2px var(--firstColor);
+  border-radius: 0.5vw;
+  padding: 0.5vw;
+}
+.connexion__form__button {
+  width: fit-content;
+  margin: 0 auto;
+  color: var(--firstColor);
+  border: solid 0.2vw var(--firstColor);
+  border-radius: 1vw;
+  padding: 0.5vw;
+  cursor: pointer;
+}
+.connexion__form__button:hover {
+  color: var(--thirdColor);
+  background-color: var(--fourthColor);
+}

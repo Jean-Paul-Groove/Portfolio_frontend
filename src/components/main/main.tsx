@@ -3,6 +3,7 @@ import About from "../about/about";
 import Contact from "../contact/contact";
 import { useState } from "react";
 import UpdatedContentContext from "../../utils/contexts/UpdatedContentContexts";
+import { Outlet } from "react-router-dom";
 
 function Main() {
   const [aboutUpdates, setAboutUpdates] = useState(0);
@@ -26,6 +27,7 @@ function Main() {
             incrementUpdatedProjectsContent: incrementUpdatedProjectsContent,
           }}
         >
+          <Outlet />
           <About />
           <ProjectsGallery />
         </UpdatedContentContext.Provider>

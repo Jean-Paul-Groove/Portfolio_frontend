@@ -6,7 +6,7 @@
   border: solid 0.2vw var(--firstColor);
   margin-bottom: 2vw;
   cursor: pointer;
-  align-self: left;
+
   width: fit-content;
   margin-left: 10vw;
 }
