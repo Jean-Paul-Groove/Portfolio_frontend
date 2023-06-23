@@ -20,6 +20,17 @@
   column-gap: 8%;
   row-gap: 3vw;
 }
+.edit__projects__form__back {
+  position: absolute;
+  top: 2vw;
+  left: 2vw;
+  cursor: pointer;
+  font-size: 2vw;
+  color: var(--firstColor);
+}
+.edit__projects__form__back:hover {
+  color: var(--fourthColor);
+}
 @media screen and (max-width: 650px) {
   .edit__projects__gallery {
     grid-template-columns: 90%;

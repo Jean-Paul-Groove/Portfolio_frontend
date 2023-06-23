@@ -6,6 +6,7 @@ import LinkedinLink from "./linkedinLink/linkedinLink";
 import EditAboutMode from "./editAboutMode/editAboutMode";
 import UpdatedContentContext from "../../utils/contexts/UpdatedContentContexts";
 import AuthentifiedContext from "../../utils/contexts/AuthentifiedContext";
+import Curriculum from "./curriculum/curriculum";
 const apiURL = import.meta.env.VITE_API_URL;
 
 function About() {
@@ -56,6 +57,7 @@ function About() {
               </figcaption>
               <div className="about__links__container">
                 <GitLink /> <LinkedinLink />
+                <Curriculum />
               </div>
             </figure>
             <div className="about__description">

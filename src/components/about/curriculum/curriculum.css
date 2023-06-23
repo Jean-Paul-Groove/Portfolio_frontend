@@ -1,0 +1,12 @@
+.curriculum__icon {
+  stroke: var(--firstColor);
+  width: 2vw;
+  aspect-ratio: 1;
+  cursor: pointer;
+  display: block;
+}
+.curriculum__link {
+  width: fit-content;
+  height: fit-content;
+  margin: 1vw;
+}

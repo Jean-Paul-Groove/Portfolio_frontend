@@ -1,0 +1,43 @@
+.edit__curriculum__toggle-modal {
+  width: fit-content;
+  position: absolute;
+  top: 20%;
+  left: -80%;
+  font-size: 1vw;
+}
+.edit__curriculum__button {
+  color: var(--thirdColor);
+  background-color: var(--fourthColor);
+  padding: 0.3vw 0.8vw;
+  border-radius: 2vw;
+  border: solid 0.2vw var(--firstColor);
+  cursor: pointer;
+  width: fit-content;
+}
+.edit__curriculum__button:hover {
+  box-shadow: 0 0 6vw var(--fourthColor);
+}
+.edit__curriculum__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+}
+.edit__curriculum__label {
+  margin: 2vw 0;
+}
+
+.edit__curriculum__input::file-selector-button {
+  width: fit-content;
+  margin: 0 2vw;
+  color: var(--firstColor);
+  border: solid 0.2vw var(--firstColor);
+  border-radius: 1vw;
+  padding: 0.5vw;
+  cursor: pointer;
+}
+.edit__curriculum__input::file-selector-button:hover {
+  color: var(--thirdColor);
+  background-color: var(--fourthColor);
+}

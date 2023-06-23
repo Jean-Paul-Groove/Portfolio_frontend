@@ -6,9 +6,9 @@
   border: solid 0.2vw var(--firstColor);
   margin-bottom: 2vw;
   cursor: pointer;
-
   width: fit-content;
   margin-left: 10vw;
+  font-size: 1.5vw;
 }
 .edit__project__gallery__mode__button:hover {
   box-shadow: 0 0 6vw var(--fourthColor);

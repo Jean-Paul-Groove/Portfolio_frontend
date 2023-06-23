@@ -44,7 +44,17 @@ function EditProjects() {
     url: "",
   };
   if (project && typeofForm) {
-    return <ProjectForm project={project} type={typeofForm} />;
+    return (
+      <>
+        <button
+          className="edit__projects__form__back"
+          onClick={() => setProject(undefined)}
+        >
+          ←
+        </button>
+        <ProjectForm project={project} type={typeofForm} />;
+      </>
+    );
   } else {
     return (
       <>
