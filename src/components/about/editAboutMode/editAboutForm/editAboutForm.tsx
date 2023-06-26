@@ -12,7 +12,8 @@ function EditAboutForm() {
   const incrementUpdatedAboutContent = useContext(
     UpdatedContentContext
   ).incrementUpdatedAboutContent;
-  const token = useContext(AuthentifiedContext).token;
+  const authContext = useContext(AuthentifiedContext);
+  const token = authContext.token;
 
   const fetchAbout = async () => {
     const response = await fetch(apiURL + "about", { method: "GET" });
@@ -37,6 +38,9 @@ function EditAboutForm() {
       });
       if (!response.ok) {
         alert("Une erreur est survenue");
+        if (response.status == 401 && authContext.setToken) {
+          authContext.setToken("");
+        }
       } else {
         setUpdated(true);
         if (incrementUpdatedAboutContent) {
@@ -60,6 +64,9 @@ function EditAboutForm() {
         }
       } else {
         alert("Une erreur est survenue");
+        if (response.status == 401 && authContext.setToken) {
+          authContext.setToken("");
+        }
       }
     }
   }

@@ -19,7 +19,8 @@ function ProjectForm(props: {
   const incrementUpdatedProjectsContent = useContext(
     UpdatedContentContext
   ).incrementUpdatedProjectsContent;
-  const token = useContext(AuthentifiedContext).token;
+  const authContext = useContext(AuthentifiedContext);
+  const token = authContext.token;
 
   function changeFormContent(
     e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -60,13 +61,16 @@ function ProjectForm(props: {
         request.append("url", formContent.url);
         request.append("file", file);
 
-        const result = await fetch(apiURL + "projets/", {
+        const response = await fetch(apiURL + "projets/", {
           method: "POST",
           body: request,
           headers: { authorization: `bearer ${token}` },
         });
-        if (!result.ok) {
+        if (!response.ok) {
           alert("Une erreur est survenue");
+          if (response.status == 401 && authContext.setToken) {
+            authContext.setToken("");
+          }
         } else {
           setUpdated(true);
           if (incrementUpdatedProjectsContent) {
@@ -84,13 +88,16 @@ function ProjectForm(props: {
         request.append("url", formContent.url);
         request.append("file", file);
 
-        const result = await fetch(apiURL + "projets/" + project.id, {
+        const response = await fetch(apiURL + "projets/" + project.id, {
           method: "PUT",
           body: request,
           headers: { authorization: `bearer ${token}` },
         });
-        if (!result.ok) {
+        if (!response.ok) {
           alert("Une erreur est survenue");
+          if (response.status == 401 && authContext.setToken) {
+            authContext.setToken("");
+          }
         } else {
           setUpdated(true);
           if (incrementUpdatedProjectsContent) {
@@ -99,7 +106,7 @@ function ProjectForm(props: {
         }
       } else {
         const request = JSON.stringify(formContent);
-        const result = await fetch(apiURL + "projets/" + project.id, {
+        const response = await fetch(apiURL + "projets/" + project.id, {
           method: "PUT",
           body: request,
           headers: {
@@ -107,8 +114,11 @@ function ProjectForm(props: {
             authorization: `bearer ${token}`,
           },
         });
-        if (!result.ok) {
+        if (!response.ok) {
           alert("Une erreur est survenue");
+          if (response.status == 401 && authContext.setToken) {
+            authContext.setToken("");
+          }
         } else {
           setUpdated(true);
           if (incrementUpdatedProjectsContent) {

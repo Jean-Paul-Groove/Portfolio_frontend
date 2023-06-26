@@ -2,7 +2,14 @@
   stroke: var(--firstColor);
   width: 2vw;
   cursor: pointer;
+  display: block;
 }
 .logout__icon:hover {
   fill: var(--fourthColor);
+}
+.logout__button {
+  width: fit-content;
+  height: fit-content;
+  margin-top: auto;
+  margin-bottom: auto;
 }

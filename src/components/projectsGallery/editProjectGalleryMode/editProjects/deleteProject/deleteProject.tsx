@@ -20,19 +20,23 @@ function DeleteProject(props: { project: Project }) {
   const incrementUpdatedProjectsContent = useContext(
     UpdatedContentContext
   ).incrementUpdatedProjectsContent;
-  const token = useContext(AuthentifiedContext).token;
+  const authContext = useContext(AuthentifiedContext);
+  const token = authContext.token;
   async function sendDeleteRequest() {
-    const result = await fetch(apiURL + "projets/" + project.id, {
+    const response = await fetch(apiURL + "projets/" + project.id, {
       method: "DELETE",
       headers: { authorization: `bearer ${token}` },
     });
-    if (result.status == 204) {
+    if (response.status == 204) {
       alert("Suppression effectuée");
       if (incrementUpdatedProjectsContent) {
         incrementUpdatedProjectsContent();
       }
     } else {
       alert("Une erreur est survenue");
+      if (response.status == 401 && authContext.setToken) {
+        authContext.setToken("");
+      }
     }
   }
   return confirmationIsOpen ? (

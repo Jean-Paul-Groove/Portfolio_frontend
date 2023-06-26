@@ -7,7 +7,8 @@ const apiURL = import.meta.env.VITE_API_URL;
 function EditCurriculum() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [file, setFile] = useState<File>();
-  const token = useContext(AuthentifiedContext).token;
+  const authContext = useContext(AuthentifiedContext);
+  const token = authContext.token;
   function toggleModal() {
     setIsModalOpen(false);
   }
@@ -37,6 +38,9 @@ function EditCurriculum() {
         toggleModal();
       } else {
         alert("Une erreur est survenue veuillez réessayer");
+        if (response.status == 401 && authContext.setToken) {
+          authContext.setToken("");
+        }
       }
     }
   }
