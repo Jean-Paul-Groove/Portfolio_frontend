@@ -52,7 +52,7 @@ function EditProjects() {
         >
           ←
         </button>
-        <ProjectForm project={project} type={typeofForm} />;
+        <ProjectForm project={project} type={typeofForm} />
       </>
     );
   } else {

@@ -69,5 +69,4 @@ body {
   font-family: var(--thirdFont);
   color: var(--firstColor);
   background-color: var(--secondColor);
-  padding: 7vw 0;
 }

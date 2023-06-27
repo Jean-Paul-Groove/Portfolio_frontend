@@ -6,6 +6,7 @@
   border-radius: 2vw;
   border: solid 0.2vw var(--firstColor);
   margin-bottom: 2vw;
+
   margin-left: 10vw;
   cursor: pointer;
 }

@@ -36,10 +36,10 @@ function About() {
 
   return (
     <>
-      {token && <EditAboutMode />}
       {about && (
         <section id="about">
           <h1>Portfolio</h1>
+          {token && <EditAboutMode />}
           <div className="about__grid">
             <figure className="about__figure">
               {about.img && (

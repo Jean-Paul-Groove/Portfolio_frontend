@@ -5,12 +5,19 @@
   min-height: 24vw;
   overflow: hidden;
   text-align: center;
-  font-size: 2.5vw;
+  font-size: 1.5vw;
+  background-color: var(--secondColor);
+  color: var(--firstColor);
 }
-
+.project__card__title {
+  color: var(--fourthColor);
+}
 .project__card:nth-child(odd) {
   background-color: var(--fourthColor);
   color: var(--thirdColor);
+}
+.project__card:nth-child(odd) .project__card__title {
+  color: var(--secondColor);
 }
 .project__card__info {
   width: 60%;
@@ -19,9 +26,7 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.project__card__description {
-  margin-top: 1vw;
-}
+
 .project__card__img {
   border-radius: 0.5vw;
   margin: auto 7vw;

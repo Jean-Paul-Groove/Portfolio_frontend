@@ -1,5 +1,6 @@
 import "./projectCard.css";
 import Tag from "./tag/tag";
+import ProjectCardDescription from "./projectCardDescription/projectCardDescription";
 import GitLink from "../../shared/externalLinks/gitLink";
 
 function ProjectCard(props: {
@@ -16,17 +17,7 @@ function ProjectCard(props: {
       <img src={img} alt={title} className="project__card__img" />
       <figcaption className="project__card__info">
         <h3 className="project__card__title">{title}</h3>
-        {description
-          .replace(/(\r\n)|\r|\n/g, "\n")
-          .split(/\n+/g)
-          .map((paragraph, index) => (
-            <p
-              key={"project_description" + index}
-              className="project__card__description"
-            >
-              {paragraph}
-            </p>
-          ))}
+        <ProjectCardDescription description={description} />
         {tags && (
           <ul className="tag__container">
             {tags.split(" ").map((tag, index) => (
