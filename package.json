@@ -6,14 +6,12 @@
   "scripts": {
     "dev": "vite",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "start": "serve dist -s -n -L -p 8080"
+    "preview": "vite preview"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.13.0",
-    "serve": "^14.2.0"
+    "react-router-dom": "^6.13.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",
