@@ -45,35 +45,38 @@ function Contact() {
   return (
     <form id="contact" className="contact__form" onSubmit={handleSubmit}>
       <h2>Me contacter</h2>
-      <label htmlFor="nom" className="contact__form__label">
+      <label htmlFor="contact_name" className="contact__form__label">
         Nom:
         <input
           type="text"
           value={formData.nom}
           name="nom"
+          id="contact_name"
           onInput={changeForm}
           placeholder="Votre nom..."
           required
           className="contact__form__input"
         />
       </label>
-      <label htmlFor="email" className="contact__form__label">
+      <label htmlFor="contact_email" className="contact__form__label">
         E-mail:
         <input
           type="email"
           value={formData.email}
           name="email"
+          id="contact_email"
           onInput={changeForm}
           placeholder="Votre email..."
           className="contact__form__input"
           required
         />
       </label>
-      <label htmlFor="message" className="contact__form__label">
+      <label htmlFor="contact_message" className="contact__form__label">
         Votre message:
         <textarea
           value={formData.message}
           name="message"
+          id="contact_message"
           onInput={changeForm}
           placeholder="Votre message..."
           maxLength={500}
