@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useState } from "react";
 import "./editAboutMode.css";
 import Modal from "../../shared/modal/modal";
 import EditAboutForm from "./editAboutForm/editAboutForm";
