@@ -56,3 +56,9 @@
   border: none;
   cursor: pointer;
 }
+@media screen and (max-width: 650px) {
+  .contact__form__label {
+    width: 90%;
+    font-size: 2vw;
+  }
+}
