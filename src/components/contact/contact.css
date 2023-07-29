@@ -6,7 +6,7 @@
   padding: 10vw 0;
 }
 .contact__form h2 {
-  font-family: "modak";
+  font-family: var(--secondFont);
   font-size: 4vw;
 }
 .contact__form__label {
