@@ -28,7 +28,6 @@ function Connexion() {
   }
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    console.log(formContent);
     const request = JSON.stringify(formContent);
     const response = await fetch(apiURL + "connexion", {
       method: "POST",

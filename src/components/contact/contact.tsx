@@ -38,7 +38,6 @@ function Contact() {
   }
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    console.log(formData);
     postMessage(formData);
   }
 
