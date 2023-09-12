@@ -14,7 +14,6 @@ function Main() {
   const [token, setToken] = useState("");
   function incrementUpdatedAboutContent() {
     setAboutUpdates(aboutUpdates + 1);
-    console.log(aboutUpdates);
   }
   function incrementUpdatedProjectsContent() {
     setProjectsUpdates(projectsUpdates + 1);

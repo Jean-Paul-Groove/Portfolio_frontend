@@ -98,27 +98,31 @@ function EditAboutForm() {
       onClick={(e) => e.stopPropagation()}
       onSubmit={handleSubmit}
     >
-      <label htmlFor="name" className="edit__form__label">
+      <label htmlFor="about_name" className="edit__form__label">
         Nom
         <input
           onChange={changeFormContent}
           type="text"
+          id="about_name"
           value={formContent.name}
           name="name"
           className="edit__form__input"
         />
       </label>
-      <label htmlFor="description" className="edit__form__label">
+      <label htmlFor="about_description" className="edit__form__label">
         Description
         <textarea
           onChange={changeFormContent}
           className="edit__form__text-area"
           name="description"
-          id=""
+          id="about_description"
           value={formContent.description}
         ></textarea>
       </label>
-      <label htmlFor="picture" className="edit__form__label input__file__label">
+      <label
+        htmlFor="about_picture"
+        className="edit__form__label input__file__label"
+      >
         Change Picture
         <input
           type="file"
@@ -126,6 +130,7 @@ function EditAboutForm() {
           onChange={handleFileChange}
           className="edit__form__input-file"
           accept="image/*"
+          id="about_picture"
         />
         <img
           className="edit__form__profile-picture about__profile-picture"

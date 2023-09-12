@@ -136,7 +136,7 @@ function ProjectForm(props: {
   ) : (
     <form onSubmit={(e) => handleSubmit(type, e)} className="project__form">
       <h2>Projet</h2>
-      <label className="project__form__label" htmlFor="title">
+      <label className="project__form__label" htmlFor="project_title">
         Titre
         <input
           className="project__form__input"
@@ -145,9 +145,10 @@ function ProjectForm(props: {
           value={formContent.title}
           onInput={changeFormContent}
           required
+          id="project_title"
         />
       </label>
-      <label className="project__form__label" htmlFor="description">
+      <label className="project__form__label" htmlFor="project_description">
         Description{" "}
         <textarea
           className="project__form__text-area"
@@ -155,9 +156,10 @@ function ProjectForm(props: {
           value={formContent.description}
           onInput={changeFormContent}
           required
+          id="project_description"
         ></textarea>
       </label>
-      <label className="project__form__label" htmlFor="tags">
+      <label className="project__form__label" htmlFor="project_tags">
         Tags
         <input
           className="project__form__input"
@@ -165,9 +167,10 @@ function ProjectForm(props: {
           name="tags"
           value={formContent.tags}
           onInput={changeFormContent}
+          id="project_tags"
         />
       </label>
-      <label className="project__form__label" htmlFor="url">
+      <label className="project__form__label" htmlFor="project_url">
         Url
         <input
           className="project__form__input"
@@ -176,9 +179,10 @@ function ProjectForm(props: {
           value={formContent.url}
           onInput={changeFormContent}
           required
+          id="project_url"
         />
       </label>
-      <label className="project__form__label" htmlFor="image">
+      <label className="project__form__label" htmlFor="project_image">
         Image
         <input
           className="project__form__file__input"
@@ -186,6 +190,7 @@ function ProjectForm(props: {
           name="image"
           accept="image/*"
           onChange={handleFileChange}
+          id="project_image"
         />
       </label>
       <div>

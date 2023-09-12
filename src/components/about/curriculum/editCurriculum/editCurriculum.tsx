@@ -1,4 +1,4 @@
-import { ChangeEvent, useContext, useState } from "react";
+import { ChangeEvent, FormEvent, useContext, useState } from "react";
 import "./editCurriculum.css";
 import Modal from "../../../shared/modal/modal";
 import AuthentifiedContext from "../../../../utils/contexts/AuthentifiedContext";
@@ -22,7 +22,8 @@ function EditCurriculum() {
       }
     }
   }
-  async function sendNewCv() {
+  async function sendNewCv(e: FormEvent) {
+    e.preventDefault();
     if (file) {
       const request = new FormData();
       request.append("file", file);
@@ -48,7 +49,7 @@ function EditCurriculum() {
   return isModalOpen ? (
     <Modal toggleModal={toggleModal}>
       <h2>Changer de CV</h2>
-      <form onSubmit={() => sendNewCv()} className="edit__curriculum__form">
+      <form onSubmit={sendNewCv} className="edit__curriculum__form">
         <label className="edit__curriculum__label" htmlFor="input__cv">
           {" "}
           Sélectionner un fichier PDF
