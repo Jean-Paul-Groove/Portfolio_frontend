@@ -22,6 +22,7 @@ function EditProjects() {
     try {
       const response = await fetch(apiURL + "projets", { method: "GET" });
       const projects = await response.json();
+      projects.reverse();
       setProjectList(projects);
     } catch (error) {
       console.log(error);
@@ -42,6 +43,7 @@ function EditProjects() {
     tags: "",
     img: "",
     url: "",
+    git: "",
   };
   if (project && typeofForm) {
     return (

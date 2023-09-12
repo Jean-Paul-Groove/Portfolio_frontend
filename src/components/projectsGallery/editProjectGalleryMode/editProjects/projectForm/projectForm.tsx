@@ -58,8 +58,11 @@ function ProjectForm(props: {
         request.append("title", formContent.title);
         request.append("description", formContent.description);
         request.append("tags", formContent.tags);
-        request.append("url", formContent.url);
+        request.append("git", formContent.git);
         request.append("file", file);
+        if (formContent.url) {
+          request.append("url", formContent.url);
+        }
 
         const response = await fetch(apiURL + "projets/", {
           method: "POST",
@@ -85,7 +88,9 @@ function ProjectForm(props: {
         request.append("title", formContent.title);
         request.append("description", formContent.description);
         request.append("tags", formContent.tags);
-        request.append("url", formContent.url);
+        if (formContent.url) {
+          request.append("url", formContent.url);
+        }
         request.append("file", file);
 
         const response = await fetch(apiURL + "projets/" + project.id, {
@@ -171,15 +176,26 @@ function ProjectForm(props: {
         />
       </label>
       <label className="project__form__label" htmlFor="project_url">
-        Url
+        Url du rendu
         <input
           className="project__form__input"
           type="text"
           name="url"
           value={formContent.url}
           onInput={changeFormContent}
-          required
           id="project_url"
+        />
+      </label>
+      <label className="project__form__label" htmlFor="project_git">
+        Git
+        <input
+          className="project__form__input"
+          type="text"
+          name="git"
+          value={formContent.git}
+          onInput={changeFormContent}
+          required
+          id="project_git"
         />
       </label>
       <label className="project__form__label" htmlFor="project_image">
@@ -201,6 +217,7 @@ function ProjectForm(props: {
           tags={formContent.tags}
           url={formContent.url}
           description={formContent.description}
+          git={formContent.git}
         />
       </div>
       <button type="submit" className="project__form__button">

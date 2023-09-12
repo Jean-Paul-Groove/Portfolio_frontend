@@ -4,5 +4,6 @@ export interface Project {
   description: string;
   tags: string;
   img: string;
-  url: string;
+  url?: string;
+  git: string;
 }

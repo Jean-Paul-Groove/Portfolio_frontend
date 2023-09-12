@@ -1,0 +1,12 @@
+.ext__icon {
+  fill: var(--firstColor);
+  aspect-ratio: 1;
+  width: 2vw;
+  margin: 0;
+  display: block;
+}
+
+.ext__a {
+  margin: 1vw;
+  width: fit-content;
+}

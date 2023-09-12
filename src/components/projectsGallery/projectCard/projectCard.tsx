@@ -2,15 +2,17 @@ import "./projectCard.css";
 import Tag from "./tag/tag";
 import ProjectCardDescription from "./projectCardDescription/projectCardDescription";
 import GitLink from "../../shared/externalLinks/gitLink";
+import ExtLink from "../../shared/externalLinks/extLink";
 
 function ProjectCard(props: {
   title: string;
   img: string;
   tags: string;
-  url: string;
+  url: string | undefined;
+  git: string;
   description: string;
 }) {
-  const { title, img, tags, url, description } = props;
+  const { title, img, tags, url, git, description } = props;
 
   return (
     <figure className="project__card">
@@ -25,7 +27,8 @@ function ProjectCard(props: {
             ))}
           </ul>
         )}
-        <GitLink url={url} />
+        <GitLink url={git} />
+        {url && url.length && <ExtLink url={url} />}
       </figcaption>
     </figure>
   );

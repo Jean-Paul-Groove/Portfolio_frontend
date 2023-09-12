@@ -18,6 +18,7 @@ function ProjectsGallery() {
     try {
       const response = await fetch(apiURL + "projets", { method: "GET" });
       const projects = await response.json();
+      projects.reverse();
       setProjects(projects);
 
       return projects;
@@ -37,17 +38,17 @@ function ProjectsGallery() {
           <h2 className="projects__title">Quelques projets</h2>
 
           <div className="projects__gallery">
-            {projects &&
-              projects.map((project: Project) => (
-                <ProjectCard
-                  key={project.id}
-                  title={project.title}
-                  img={project.img}
-                  tags={project.tags}
-                  url={project.url}
-                  description={project.description}
-                />
-              ))}
+            {projects?.map((project: Project) => (
+              <ProjectCard
+                key={project.id}
+                title={project.title}
+                img={project.img}
+                tags={project.tags}
+                git={project.git}
+                url={project.url}
+                description={project.description}
+              />
+            ))}
           </div>
         </>
       )}
