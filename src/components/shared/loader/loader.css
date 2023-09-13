@@ -1,0 +1,33 @@
+.loader {
+  width: 10vw;
+  height: 10vw;
+  border-radius: 50%;
+  margin: 15px auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background: var(--thirdColor);
+  box-sizing: border-box;
+  animation: shadowExpandX 2s linear infinite alternate;
+  z-index: 10;
+}
+.loader-wrapper {
+  z-index: 10;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  bottom: 0%;
+  right: 0;
+  backdrop-filter: blur(80px);
+}
+@keyframes shadowExpandX {
+  0% {
+    box-shadow: 0 0, 0 0, 0 0, 0 0;
+    color: var(--secondColor);
+  }
+  100% {
+    box-shadow: -25vw 0, 25vw 0, 0 25vh, 0 -25vh;
+    color: var(--fourthColor);
+  }
+}

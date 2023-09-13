@@ -7,6 +7,7 @@ import EditAboutMode from "./editAboutMode/editAboutMode";
 import UpdatedContentContext from "../../utils/contexts/UpdatedContentContexts";
 import AuthentifiedContext from "../../utils/contexts/AuthentifiedContext";
 import Curriculum from "./curriculum/curriculum";
+import Loader from "../shared/loader/loader";
 const apiURL = import.meta.env.VITE_API_URL;
 
 function About() {
@@ -16,18 +17,23 @@ function About() {
     img: "",
     name: "",
   });
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const updatedAboutContentCount = useContext(
     UpdatedContentContext
   ).updatedAboutContent;
   const token = useContext(AuthentifiedContext).token;
 
   const fetchAbout = async () => {
+    console.log(isLoading);
+    setIsLoading(true);
     try {
       const response = await fetch(apiURL + "about", { method: "GET" });
       const data = await response.json();
       setAbout(data);
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
   useEffect(() => {
@@ -36,6 +42,7 @@ function About() {
 
   return (
     <>
+      {isLoading && <Loader />}
       {about && (
         <section id="about">
           <h1>Portfolio</h1>
