@@ -16,7 +16,14 @@ function ProjectCard(props: {
 
   return (
     <figure className="project__card">
-      <img src={img} alt={title} className="project__card__img" />
+      {url && url.length ? (
+        <a className="project__card__img" href={url}>
+          <img src={img} alt={title} className="project__card__img-in-a" />
+        </a>
+      ) : (
+        <img src={img} alt={title} className="project__card__img" />
+      )}
+
       <figcaption className="project__card__info">
         <h3 className="project__card__title">{title}</h3>
         <ProjectCardDescription description={description} />
